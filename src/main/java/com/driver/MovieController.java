@@ -58,8 +58,8 @@ public class MovieController {
         return new ResponseEntity(response, HttpStatus.FOUND);
     }
 
-    @GetMapping("/get-movie-by-director-name/{name}")
-    public ResponseEntity getMovieByDirectorName(@PathVariable("name") String name){
+    @GetMapping("/get-movies-by-director-name/{name}")
+    public ResponseEntity getMoviesByDirectorName(@PathVariable("name") String name){
         List<String> response=movieService.getMovieByDirectorName(name);
         if(response==null){
             return new ResponseEntity("No Director Available", HttpStatus.NOT_FOUND);
@@ -85,8 +85,8 @@ public class MovieController {
         return new ResponseEntity(response, HttpStatus.FOUND);
     }
 
-    @DeleteMapping("/delete-all-director")
-    public ResponseEntity deleteAllDirector(){
+    @DeleteMapping("/delete-all-directors")
+    public ResponseEntity deleteAllDirectors(){
         String response=movieService.deleteAllDirector();
         if(response==null){
             return new ResponseEntity("No Director Available", HttpStatus.NOT_FOUND);
